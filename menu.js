@@ -34,5 +34,17 @@
         });
     };
 
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the category from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var categoryShortName = urlParams.get("category");
+
+        if (categoryShortName) {
+            dc.loadMenuItems(categoryShortName);
+        } else {
+            console.error("No category specified.");
+        }
+    });
+
     global.$dc = dc;
 })(window);
